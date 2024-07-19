@@ -1,11 +1,17 @@
 from flask import Flask, jsonify
 from flask_cors import CORS 
 import openai
+import os
+from dotenv import load_dotenv
+import requests
 
 app = Flask(__name__)
 CORS(app)
 
-openai.api_key = 'sk-None-x5GV8w0obPPl79OZSP9rT3BlbkFJGlALBhnAqH4FOz7kY7pX'
+API_KEY = os.environ["api_key"]
+openai.api_key = f"{API_KEY}"
+message = f"Your OpenAI API Key is: {API_KEY}"
+print(message)
 
 @app.route('/test/<message>')
 def test_method(message):
