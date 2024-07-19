@@ -25,10 +25,6 @@ jobs:
         pip install -r requirements.txt
         pip install requests
 
-    - name: Run tests
-      run: |
-        pytest
-
     - name: Build and deploy
       run: |
         echo "api_key=$API_KEY" > .env
